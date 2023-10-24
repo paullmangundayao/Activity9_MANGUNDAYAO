@@ -1,0 +1,24 @@
+- name: Install Prometheus in Ubuntu
+  tags: 
+    - Ubuntu 
+    - prometheus
+  apt: 
+    name: prometheus 
+    state: latest
+
+- name: Enabling Prometheus in Ubuntu
+  tags: 
+    - ubuntu 
+    - enable 
+    - prometheus
+  service: 
+    name: prometheus 
+    state: restarted 
+    enabled: true
+
+- name: Allow port 9090 for Prometheus in Ubuntu
+  tags: 
+    - ubuntu 
+    - port 
+    - prometheus
+  shell: sudo ufw allow 9090/tcp
